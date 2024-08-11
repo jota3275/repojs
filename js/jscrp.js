@@ -14,58 +14,61 @@ const precioCobertura = {
     "mixto": 250
 };
 
-function seleccionarOpcion() {
-    let seleccionRelleno;
-    let seleccionCobertura;
+function seleccionarOpcion(mostrarOpciones, opciones, precios) {
+    let seleccion;
     let subtotal = 0;
-    const IVA = 0.21;
-
+    
     while (true) {
-        let mensajeRelleno = "Selecciona un relleno: \n";
-        for (let clave in rellenos) {
-            mensajeRelleno += "-" + clave + ": " + rellenos[clave] + "\n";
-        }
-
-        seleccionRelleno = prompt(mensajeRelleno);
+        let mensaje = mostrarOpciones(opciones, precios);
+        seleccion = prompt(mensaje);
         
-        if (rellenos.hasOwnProperty(seleccionRelleno)) {
-            subtotal += rellenos[seleccionRelleno];
-            alert("Has seleccionado " + seleccionRelleno + " con un precio de: " + rellenos[seleccionRelleno]);
+        if (opciones.includes(seleccion)) {
+            subtotal = precios[seleccion];
+            alert("Has seleccionado " + seleccion + " con un precio de: " + subtotal);
             break;
         } else {
             alert("Por favor, elige una opción correcta.");
         }
     }
 
-    while (true) {
-        let mensajeCobertura = "Selecciona una cobertura: \n";
-        for (let i = 0; i < cobertura.length; i++) {
-            mensajeCobertura += "- " + cobertura[i] + ": " + (precioCobertura[cobertura[i]] || "No disponible") + " \n";
-        }
+    return { seleccion, subtotal };
+}
 
-        seleccionCobertura = prompt(mensajeCobertura);
-        
-        if (cobertura.includes(seleccionCobertura)) {
-            subtotal += precioCobertura[seleccionCobertura];
-            alert("Has seleccionado la cobertura " + seleccionCobertura + " con un precio de: " + precioCobertura[seleccionCobertura]);
-            break;
-        } else {
-            alert("Por favor, elige una cobertura correcta.");
-        }
+function mostrarRellenos(rellenos) {
+    let mensajeRelleno = "Selecciona un relleno: \n";
+    for (let clave in rellenos) {
+        mensajeRelleno += "-" + rellenos[clave] + "\n";
     }
+    return mensajeRelleno;
+}
 
-    function calcularIVA(subtotal, IVA) {
-        return subtotal * IVA;
+function mostrarCoberturas(cobertura, precioCobertura) {
+    let mensajeCobertura = "Selecciona una cobertura: \n";
+    for (let i = 0; i < cobertura.length; i++) {
+        mensajeCobertura += "- " + cobertura[i] + ": " + (precioCobertura[cobertura[i]] || "No disponible") + " \n";
     }
+    return mensajeCobertura;
+}
 
+function calcularIVA(subtotal, IVA) {
+    return subtotal * IVA;
+}
+
+function main() {
+    const IVA = 0.21;
+
+    const { seleccion: seleccionRelleno, subtotal: subtotalRelleno } = seleccionarOpcion(mostrarRellenos, Object.keys(rellenos), rellenos);
+    const { seleccion: seleccionCobertura, subtotal: subtotalCobertura } = seleccionarOpcion(mostrarCoberturas, cobertura, precioCobertura);
+
+    const subtotal = subtotalRelleno + subtotalCobertura;
     let iva = calcularIVA(subtotal, IVA);
     let totalConIVA = subtotal + iva;
 
-    console.log("Relleno seleccionado " + seleccionRelleno + " con un precio de: " + rellenos[seleccionRelleno]);
+    console.log("Relleno seleccionado: " + seleccionRelleno + " con un precio de: " + rellenos[seleccionRelleno]);
     console.log("Cobertura seleccionada " + seleccionCobertura + " con un precio de: " + precioCobertura[seleccionCobertura]);
     console.log("Subtotal: " + subtotal);
     console.log("IVA (" + (IVA * 100) + "%): " + iva.toFixed());
     console.log("Total con IVA: " + totalConIVA.toFixed());
 }
 
-seleccionarOpcion();
+main();
