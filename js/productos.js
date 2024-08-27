@@ -42,8 +42,6 @@ function agregarAlCarrito(id) {
 
         localStorage.setItem('carrito', JSON.stringify(carrito));
 
-    } else {
-        console.error('Producto no encontrado');
     }
 }
 

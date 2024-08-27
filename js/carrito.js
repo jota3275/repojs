@@ -10,28 +10,28 @@ function guardarCarrito(carrito) {
 
 function mostrarCarrito() {
     const carrito = cargarCarrito();
-    const carritoItemsContainer = document.getElementById('carrito-items');
+    const carritoContainer = document.getElementById('carrito-articulo');
     const totalElement = document.getElementById('total');
 
-    carritoItemsContainer.innerHTML = '';
+    carritoContainer.innerHTML = '';
     let total = 0;
 
-    carrito.forEach(item => {
+    carrito.forEach(articulo => {
         const div = document.createElement('div');
-        div.className = 'carrito-item';
+        div.className = 'carrito-articulo';
         div.innerHTML = `
-            <h4>${item.nombre}</h4>
-            <p>Precio: $${item.precio}</p>
-            <p>Cantidad: ${item.cantidad}</p>
-            <p>Total: $${item.precio * item.cantidad}</p>
-            <button id="eliminar-${item.id}">Eliminar</button>
+            <h4>${articulo.nombre}</h4>
+            <p>Precio: $${articulo.precio}</p>
+            <p>Cantidad: ${articulo.cantidad}</p>
+            <p>Total: $${articulo.precio * articulo.cantidad}</p>
+            <button id="eliminar-${articulo.id}">Eliminar</button>
         `;
-        carritoItemsContainer.appendChild(div);
+        carritoContainer.appendChild(div);
 
-        const botonEliminar = div.querySelector(`#eliminar-${item.id}`);
-        botonEliminar.addEventListener('click', () => removerDelCarrito(item.id));
+        const botonEliminar = div.querySelector(`#eliminar-${articulo.id}`);
+        botonEliminar.addEventListener('click', () => removerDelCarrito(articulo.id));
 
-        total += item.precio * item.cantidad;
+        total += articulo.precio * articulo.cantidad;
     });
 
     totalElement.textContent = `Total: $${total}`;
