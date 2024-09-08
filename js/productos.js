@@ -1,33 +1,42 @@
-const productos = [
-    { id: 1, nombre: 'Alfajor Jorgito', precio: 1200 },
-    { id: 2, nombre: 'Alfajor Milka', precio: 1500 },
-    { id: 3, nombre: 'Alfajor Aguila', precio: 2200 },
-    { id: 4, nombre: 'Alfajor Terrabusi', precio: 1600 },
-    { id: 5, nombre: 'Alfajor Pepitos', precio: 2000 },
-    { id: 6, nombre: 'Alfajor Oreo', precio: 2300 },
-    { id: 7, nombre: 'Alfajor Bon o Bon', precio: 1100 },
-    { id: 8, nombre: 'Alfajor Block', precio: 1800 }
-];
+document.addEventListener('DOMContentLoaded', function() {
+    fetch('js/productos.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('No se pudo cargar el archivo JSON');
+            }
+            return response.json();
+        })
+        .then(productos => {
+            mostrarProductos(productos);
+        })
+        .catch(error => console.error('Error al cargar los productos:', error));
+});
 
-function mostrarProductos() {
+function mostrarProductos(productos) {
     const productosContainer = document.getElementById('productos');
 
     productos.forEach(producto => {
         const div = document.createElement('div');
-        div.className = 'producto';
+        div.className = 'col-md-4 mb-4'; // Cambiado para usar el sistema de columnas de Bootstrap
         div.innerHTML = `
-            <h3>${producto.nombre}</h3>
-            <p>Precio: $${producto.precio}</p>
-            <button id="agregar-${producto.id}">Agregar al Carrito</button>
+            <div class="card" style="width: 18rem; height: 32rem;">
+                <img class="card-img-top" src="${producto.imagen}" alt="${producto.nombre}" />
+                <div class="card-body">
+                    <h3 class="card-title">${producto.nombre}</h3>
+                    <p class="card-text">Descripción: ${producto.descripcion}</p>
+                    <p class="card-text">Precio: $${producto.precio}.-</p>
+                    <button id="agregar-${producto.id}" class="btn btn-success">Agregar al Carrito</button>
+                </div>
+            </div>
         `;
         productosContainer.appendChild(div);
 
         const botonAgregar = div.querySelector(`#agregar-${producto.id}`);
-        botonAgregar.addEventListener('click', () => agregarAlCarrito(producto.id));
+        botonAgregar.addEventListener('click', () => agregarAlCarrito(producto.id, productos));
     });
 }
 
-function agregarAlCarrito(id) {
+function agregarAlCarrito(id, productos) {
     const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
     const producto = productos.find(p => p.id === id);
 
@@ -42,9 +51,13 @@ function agregarAlCarrito(id) {
 
         localStorage.setItem('carrito', JSON.stringify(carrito));
 
+        // Mostrar notificación con Toastify
+        Toastify({
+            text: `${producto.nombre} se agregó al carrito`,
+            duration: 3000,
+            gravity: "top", // Posición vertical de la notificación
+            position: "right", // Posición horizontal de la notificación
+            backgroundColor: "#4CAF50" // Color de fondo de la notificación
+        }).showToast();
     }
 }
-
-document.addEventListener('DOMContentLoaded', function() {
-    mostrarProductos();
-});

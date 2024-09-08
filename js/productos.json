@@ -1,0 +1,66 @@
+[
+    {
+        "id": 1,
+        "nombre": "Alfajor Jorgito",
+        "precio": 1200,
+        "descripcion": "Delicioso alfajor con relleno de dulce de leche.",
+        "stock": 50,
+        "imagen": "https://latinafy.com/cdn/shop/files/JorgitoBlackAlfajorfilledwithDulcedeLeche_ChocolateCoating_55g-1.94oz_packof6_700x700.jpg?v=1687533501"
+    },
+    {
+        "id": 2,
+        "nombre": "Alfajor Milka",
+        "precio": 1500,
+        "descripcion": "Alfajor de chocolate con leche de la marca Milka.",
+        "stock": 30,
+        "imagen": "https://du3hj28fogfli.cloudfront.net/Custom/Content/Products/66/54/66541_alfajor-milka-mousse-ao-leite-42g-p53569_m1_637897788599560216.png"
+    },
+    {
+        "id": 3,
+        "nombre": "Alfajor Aguila",
+        "precio": 2200,
+        "descripcion": "Alfajor con cobertura de chocolate y dulce de leche.",
+        "stock": 20,
+        "imagen": "https://th.bing.com/th/id/OIP.JteAHJgy_5rkCkLzzGGy0AHaHa?w=185&h=185&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+    },
+    {
+        "id": 4,
+        "nombre": "Alfajor Terrabusi",
+        "precio": 1600,
+        "descripcion": "Un clásico alfajor con dulce de leche y cobertura de chocolate.",
+        "stock": 40,
+        "imagen": "https://th.bing.com/th/id/OIP.LZFSsO58mAg315sMihu4rwHaHa?w=199&h=199&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+    },
+    {
+        "id": 5,
+        "nombre": "Alfajor Pepitos",
+        "precio": 2000,
+        "descripcion": "Alfajor con crocante de chocolate y dulce de leche.",
+        "stock": 25,
+        "imagen": "https://th.bing.com/th/id/OIP.pzvEdDiGOgz3j8ZyceB-jQHaHa?pid=ImgDet&w=179&h=179&c=7&dpr=1,3"
+    },
+    {
+        "id": 6,
+        "nombre": "Alfajor Oreo",
+        "precio": 2300,
+        "descripcion": "Alfajor con relleno de crema Oreo y chocolate.",
+        "stock": 15,
+        "imagen": "https://th.bing.com/th/id/OIP.r48Krp4gdERdkCi2Vl46DwHaHa?pid=ImgDet&w=179&h=179&c=7&dpr=1,3"
+    },
+    {
+        "id": 7,
+        "nombre": "Alfajor Bon o Bon",
+        "precio": 1100,
+        "descripcion": "Alfajor con cobertura de chocolate y relleno de dulce de leche.",
+        "stock": 35,
+        "imagen": "https://d2o812a6k13pkp.cloudfront.net/Productos/40415428_01.jpg"
+    },
+    {
+        "id": 8,
+        "nombre": "Alfajor Block",
+        "precio": 1800,
+        "descripcion": "Alfajor con una capa gruesa de chocolate y relleno de dulce de leche.",
+        "stock": 45,
+        "imagen": "https://th.bing.com/th/id/OIP.u6WiUnRkqSiVrAqtN25D5AHaHa?w=188&h=187&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+    }
+]

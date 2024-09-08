@@ -1,4 +1,6 @@
-// carrito.js
+document.addEventListener('DOMContentLoaded', function() {
+    mostrarCarrito();
+});
 
 function cargarCarrito() {
     return JSON.parse(localStorage.getItem('carrito')) || [];
@@ -13,18 +15,24 @@ function mostrarCarrito() {
     const carritoContainer = document.getElementById('carrito-articulo');
     const totalElement = document.getElementById('total');
 
-    carritoContainer.innerHTML = '';
+    carritoContainer.innerHTML = ''; // Limpiar el contenido previo
     let total = 0;
 
     carrito.forEach(articulo => {
         const div = document.createElement('div');
-        div.className = 'carrito-articulo';
+        div.className = 'col-md-4 mb-4'; // Añadir clase para el diseño
         div.innerHTML = `
-            <h4>${articulo.nombre}</h4>
-            <p>Precio: $${articulo.precio}</p>
-            <p>Cantidad: ${articulo.cantidad}</p>
-            <p>Total: $${articulo.precio * articulo.cantidad}</p>
-            <button id="eliminar-${articulo.id}">Eliminar</button>
+            <div class="card" style="width: 18rem; height: 32rem;">
+                <img class="card-img-top" src="${articulo.imagen}" alt="${articulo.nombre}" />
+                <div class="card-body text-center">
+                    <h5 class="card-title">${articulo.nombre}</h5>
+                    <p class="card-text">Descripcion: ${articulo.descripcion}</p>
+                    <p class="card-text">Precio: $${articulo.precio}.-</p>
+                    <p class="card-text">Cantidad: ${articulo.cantidad}</p>
+                    <p class="card-text">Total: $${articulo.precio * articulo.cantidad}</p>
+                    <button id="eliminar-${articulo.id}" class="btn btn-danger">Eliminar</button>
+                </div>
+            </div>
         `;
         carritoContainer.appendChild(div);
 
@@ -43,7 +51,3 @@ function removerDelCarrito(id) {
     guardarCarrito(carrito);
     mostrarCarrito();
 }
-
-document.addEventListener('DOMContentLoaded', function() {
-    mostrarCarrito();
-});
