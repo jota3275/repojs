@@ -5,94 +5,150 @@
   box-sizing: border-box;
 }
 
+body {
+  background-color: rgba(234, 234, 233, 0.6);
+}
+
 header {
-  font-family: sans-serif;
-  height: 10%;
-  background-color: aquamarine;
-  text-align: center;
-  padding: 10px;
+  background-color: #DA1E37;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.logo1 {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 120px;
+  width: auto;
+}
+
+.logocarrito {
+  width: 60px;
+  height: auto;
 }
 
 main {
-  display: inline;
-  min-height: 80vh; /* Asegura que el main ocupe al menos el 80% de la altura de la ventana */
-}
-
-.contenedor {
   padding: 20px;
 }
 
-.row {
-  display: flex;          
-  flex-wrap: wrap;        
-  justify-content: center; /* Centra las tarjetas horizontalmente */
-  gap: 20px;              /* Espacio entre tarjetas */
+.contenedor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.distribucion {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
 }
 
 .card {
   background-color: #fff;
-  padding: 20px;
-  border: 1px solid #ddd;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  position: relative; /* Necesario para posicionar el botón */
-  width: calc(25% - 30px); /* Ajusta el ancho según el contenedor */
-  min-width: 200px; /* Ancho mínimo */
-  display: flex; /* Habilita Flexbox */
-  flex-direction: column; /* Organiza los elementos en una columna */
-  justify-content: center; /* Centra verticalmente */
-  align-items: center; /* Centra horizontalmente */
-  text-align: center; /* Centra el texto horizontalmente */
+  width: 100%;
+  max-width: 300px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .card-img-top {
-  width: 100%;
-  height: auto; /* Ajusta la altura de la imagen según sea necesario */
-  margin-bottom: 15px; /* Espacio debajo de la imagen */
-  object-fit: cover; /* Asegura que la imagen cubra el área sin distorsionarse */
+  width: 90%;
+  height: 90%;
+  object-fit: cover;
 }
 
-.btn {
-  background: #63d0fe; 
-  border: none;
-  color: white; 
-  padding: 15px 30px;
-  font-size: 13px;
+.card-body {
+  padding: 20px;
+}
+
+.card-title {
   font-family: sans-serif;
-  border-radius: 25px; /* Bordes redondeados */
-  cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
-  transition: all 0.3s ease; /* Transición suave para efectos */
-  outline: none; /* Elimina el borde al hacer clic */
-  margin-top: 15px;
+  font-size: 1.25rem;
+  margin-bottom: 10px;
 }
 
-.btn:hover {
-  background: #45a049; /* Verde oscuro para el hover */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra sutil al pasar el ratón */
-  transform: translateY(-2px); /* Efecto de elevación */
+.card-text {
+  font-family: sans-serif;
+  font-size: 1rem;
+  margin-bottom: 15px;
 }
 
-.btn:active {
-  background: #388e3c; /* Verde aún más oscuro al hacer clic */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra más pequeña al hacer clic */
-  transform: translateY(0); /* Elimina el efecto de elevación al hacer clic */
+.boton {
+  background: #ffffff; 
+  border: 2px solid #DA1E37;
+  color: #DA1E37; 
+  padding: 10px 20px;
+  font-size: 14px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.boton:hover {
+  background: #DA1E37;
+  color: white;
+  border: none;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+.boton:active {
+  background: rgba(218, 30, 55, 0.8) !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
+  transform: translateY(0) !important;
 }
 
 footer {
-  background-color: aquamarine;
-  height: 7%;
+  background-color: #DA1E37;
+  color: #fff;
   text-align: center;
   padding: 10px;
 }
 
 @media (max-width: 768px) {
   .card {
-      flex: 1 1 calc(50% - 20px); /* Ajusta el ancho de las tarjetas en pantallas medianas */
+    flex: 1 1 calc(50% - 20px);
   }
 }
 
 @media (max-width: 480px) {
   .card {
-      flex: 1 1 calc(100% - 20px); /* Ajusta el ancho de las tarjetas en pantallas pequeñas */
+    flex: 1 1 calc(100% - 20px);
+  }
+
+  .logo {
+    height: 80px;
+  }
+
+  .logocarrito {
+    width: 40px;
+  }
+}
+
+@media (max-width: 576px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start; /* Alinea elementos al inicio para pantallas pequeñas */
+  }
+
+  .logo, .logocarrito {
+    margin-bottom: 10px;
+  }
+
+  .logocarrito {
+    width: 50px;
+    height: auto;
   }
 }

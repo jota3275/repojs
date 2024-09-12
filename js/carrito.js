@@ -15,12 +15,12 @@ function mostrarCarrito() {
     const carritoContainer = document.getElementById('carrito-articulo');
     const totalElement = document.getElementById('total');
 
-    carritoContainer.innerHTML = ''; // Limpiar el contenido previo
+    carritoContainer.innerHTML = '';
     let total = 0;
 
     carrito.forEach(articulo => {
         const div = document.createElement('div');
-        div.className = 'col-md-4 mb-4'; // Añadir clase para el diseño
+        div.className = 'col-md-4 mb-4';
         div.innerHTML = `
             <div class="card" style="width: 18rem; height: 32rem;">
                 <img class="card-img-top" src="${articulo.imagen}" alt="${articulo.nombre}" />
@@ -47,7 +47,20 @@ function mostrarCarrito() {
 
 function removerDelCarrito(id) {
     let carrito = cargarCarrito();
-    carrito = carrito.filter(p => p.id !== id);
-    guardarCarrito(carrito);
-    mostrarCarrito();
+    const producto = carrito.find(p => p.id === id);
+
+    if (producto) {
+        carrito = carrito.filter(p => p.id !== id);
+        guardarCarrito(carrito);
+        mostrarCarrito();
+
+        
+        Toastify({
+            text: `${producto.nombre} se eliminó del carrito`,
+            duration: 3000,
+            gravity: "top",
+            position: "right",
+            backgroundColor: "#4CAF50"
+        }).showToast();
+    }
 }

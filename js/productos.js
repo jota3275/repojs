@@ -17,15 +17,15 @@ function mostrarProductos(productos) {
 
     productos.forEach(producto => {
         const div = document.createElement('div');
-        div.className = 'col-md-4 mb-4'; // Cambiado para usar el sistema de columnas de Bootstrap
+        div.className = 'col-md-3 mb-4';
         div.innerHTML = `
             <div class="card" style="width: 18rem; height: 32rem;">
                 <img class="card-img-top" src="${producto.imagen}" alt="${producto.nombre}" />
                 <div class="card-body">
                     <h3 class="card-title">${producto.nombre}</h3>
                     <p class="card-text">Descripción: ${producto.descripcion}</p>
-                    <p class="card-text">Precio: $${producto.precio}.-</p>
-                    <button id="agregar-${producto.id}" class="btn btn-success">Agregar al Carrito</button>
+                    <p class="card-text">Precio: $${producto.precio}</p>
+                    <button id="agregar-${producto.id}" class="btn boton ">Agregar al Carrito</button>
                 </div>
             </div>
         `;
@@ -51,13 +51,13 @@ function agregarAlCarrito(id, productos) {
 
         localStorage.setItem('carrito', JSON.stringify(carrito));
 
-        // Mostrar notificación con Toastify
+        
         Toastify({
             text: `${producto.nombre} se agregó al carrito`,
             duration: 3000,
-            gravity: "top", // Posición vertical de la notificación
-            position: "right", // Posición horizontal de la notificación
-            backgroundColor: "#4CAF50" // Color de fondo de la notificación
+            gravity: "top",
+            position: "right",
+            backgroundColor: "#4CAF50"
         }).showToast();
     }
 }
