@@ -1,5 +1,5 @@
 * {
-  font-family: sans-serif;
+  font-family: Helvetica, Arial, sans-serif !important;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -12,19 +12,27 @@ body {
 header {
   background-color: #DA1E37;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  width: 100%;
   padding: 10px 20px;
 }
 
 .logo1 {
+  width: 95%;
   display: flex;
-  align-items: center;
+  justify-content: center;
+  padding: 20px; 
 }
 
 .logo {
+  display: inline-block;
   height: 120px;
   width: auto;
+}
+
+.carrito1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .logocarrito {
@@ -34,6 +42,11 @@ header {
 
 main {
   padding: 20px;
+}
+
+.toastify {
+  background: rgba(234, 234, 233, 0.6) !important;
+  color: rgb(0, 0, 0) !important;
 }
 
 .contenedor {
@@ -64,8 +77,9 @@ main {
 
 .card-img-top {
   width: 90%;
-  height: 90%;
+  height: 40%;
   object-fit: cover;
+  margin-top: 20px;
 }
 
 .card-body {
@@ -73,13 +87,13 @@ main {
 }
 
 .card-title {
-  font-family: sans-serif;
+  font-family: Helvetica, Arial, sans-serif !important;
   font-size: 1.25rem;
   margin-bottom: 10px;
 }
 
 .card-text {
-  font-family: sans-serif;
+  font-family: Helvetica, Arial, sans-serif !important;
   font-size: 1rem;
   margin-bottom: 15px;
 }
@@ -109,12 +123,55 @@ main {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
   transform: translateY(0) !important;
 }
+#total{
+  height: 80px;
+  display: flex;
+  align-items: center;
+  align-content: center;
+}
+
+.botones-especiales {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  align-content: center;
+  height: 50px;
+}
+
+.especial1:hover {
+  background: #ffffff; 
+  border: 2px solid #DA1E37;
+  color: #DA1E37; 
+  padding: 10px 20px;
+  font-size: 14px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.especial2{
+  background: #DA1E37;
+  color: white;
+  border: none;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
 
 footer {
+  display: flex;
+  height: 15%;
   background-color: #DA1E37;
   color: #fff;
   text-align: center;
   padding: 10px;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+.footer-bottom {
+  margin: 0;
+  font-size: 0.9em;
 }
 
 @media (max-width: 768px) {
@@ -140,7 +197,7 @@ footer {
 @media (max-width: 576px) {
   header {
     flex-direction: column;
-    align-items: flex-start; /* Alinea elementos al inicio para pantallas pequeñas */
+    align-items: flex-start;
   }
 
   .logo, .logocarrito {

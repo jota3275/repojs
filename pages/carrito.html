@@ -7,20 +7,27 @@
 </head>
 <body>
     <header>
-        <div><img class="logo" src="../assets/logos.svg"></div>
+        <div class="logo1"><a href="../index.html"><img class="logo" src="../assets/logos.svg"></a></div>
     </header>
     <main>
         <div class="contenedor">
-            <div id="carrito-articulo" class="row"></div>
-            <h3 id="total">Total: $0</h3>
+            <div id="carrito-articulo" class="row distribucion"></div>
+            <div id="total"></div>
+            <div class="botones-especiales">
+            <button id="comprar" class="btn boton especial1">Comprar</button>
+            <button id="cancelar" class="btn boton especial2">Cancelar</button>
+            </div>
         </div>
-        <a href="../index.html">Volver a la tienda</a>
     </main>
-    <footer>
-        
+    <footer class="footer">
+        <div class="footer-bottom">
+            <p>&copy; 2024 Jota Alfajores S.A. Todos los derechos reservados.</p>
+        </div>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../js/carrito.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
 </body>
 </html>
